@@ -1,10 +1,13 @@
 package com.snd.foresttest.ui.user.login
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.snd.foresttest.R
 import com.snd.foresttest.base.TMActivity
 import com.snd.foresttest.databinding.ActLoginBinding
+import androidx.lifecycle.ViewModel
+
 
 class LoginActivity : TMActivity() {
 

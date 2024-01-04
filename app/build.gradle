@@ -33,7 +33,6 @@ android {
         jvmTarget = '1.8'
     }
 
-    // 데이터 바인딩 추가
     dataBinding {
         enabled = true
     }
@@ -41,6 +40,8 @@ android {
 
 
 dependencies {
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'

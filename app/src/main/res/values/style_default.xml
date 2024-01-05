@@ -1,4 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+
+    <!-- 등록화면 입력 레이아웃 -->
+    <style name="register_outline_input_layout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
+
+        <item name="boxStrokeColor">@drawable/selector_input_outline</item>
+        <item name="colorPrimary">@color/login_green</item>
+        <item name="colorPrimaryDark">@color/login_green</item>
+        <item name="colorAccent">@color/login_green</item>
+        <item name="colorControlNormal">@color/login_green</item>           // unFocus 상태일때 밑줄
+        <item name="android:textCursorDrawable">@color/login_green</item>   // cursor 색
+        <!--<item name="android:textColorHint">@color/disable</item>        // hint-->
+        <item name="hintTextColor">@color/login_green</item>                // floating hint
+        <item name="helperTextTextColor">@color/login_green</item>
+        <item name="errorTextColor">@color/login_green</item>
+    </style>
+
+    <style name="inputOutlineLayoutTheme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@drawable/selector_input_outline</item>
+        <item name="colorPrimary">@color/login_green</item>
+        <item name="colorPrimaryDark">@color/login_green</item>
+        <item name="colorAccent">@color/login_green</item>
+        <item name="colorControlNormal">@color/login_green</item>           // unFocus 상태일때 밑줄
+        <item name="android:textCursorDrawable">@color/login_green</item>   // cursor 색
+        <!--<item name="android:textColorHint">@color/disable</item>        // hint-->
+        <item name="hintTextColor">@color/login_green</item>                // floating hint
+        <item name="helperTextTextColor">@color/login_green</item>
+        <item name="errorTextColor">@color/login_green</item>
+    </style>
+
 </resources>

@@ -14,6 +14,7 @@
         tools:targetApi="31">
         <activity
             android:name=".ui.user.login.LoginActivity"
+            android:screenOrientation="sensorPortrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +22,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- 사용자 등록 화면 -->
+        <activity
+            android:name=".ui.user.register.RegisterActivity"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustResize"/>
+
     </application>
 
 </manifest>

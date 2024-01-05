@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    tools:ignore="HardcodedText, SpUsage">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.snd.foresttest.ui.user.register.RegisterViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="10dp">
+
+                <View
+                    android:id="@+id/register_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사용자 등록하기"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="@id/register_header"
+                    app:layout_constraintStart_toStartOf="@id/register_header"
+                    app:layout_constraintTop_toTopOf="@id/register_header" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/bt_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/register_header"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/register_header"
+                    app:srcCompat="@drawable/ic_x" />
+
+
+                <!-- 데이터 입력 칸들 -->
+                <!-- 아이디 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/id_input_layout"
+                    style="@style/register_outline_input_layout"
+                    android:theme="@style/inputOutlineLayoutTheme"
+                    android:text="@={vm.id}"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="20"
+                    app:helperText="아이디는 4 ~ 20 글자의 알파벳 소문자와 숫자의 조합입니다."
+                    app:label_text="@{`아이디`}"
+                    app:layout_constraintEnd_toStartOf="@+id/bt_isDuplicateCheck"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/register_header">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/t_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:lines="1"
+                        android:nextFocusDown="@id/t_pass"
+                        android:singleLine="true"
+                        tools:hint="아이디" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/bt_isDuplicateCheck"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:text="중복 체크"
+                    android:textSize="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/id_input_layout"
+                    app:layout_constraintTop_toTopOf="@+id/id_input_layout"
+                    tools:ignore="MissingConstraints" />
+
+
+                <!-- 비밀번호 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/pass_input_layout"
+                    style="@style/register_outline_input_layout"
+                    android:theme="@style/inputOutlineLayoutTheme"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="50"
+                    app:helperText="비밀번호는 10자 이상 알파벳과 숫자, 특수문자의 조합입니다."
+                    app:label_text="@{`비밀번호`}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/id_input_layout">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/t_pass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
+                        android:lines="1"
+                        android:text="@={vm.pass}"
+                        android:nextFocusDown="@id/t_pass"
+                        android:singleLine="true"
+                        tools:hint="비밀번호" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!-- 비밀번호 확인 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/pass_check_input_layout"
+                    style="@style/register_outline_input_layout"
+                    android:theme="@style/inputOutlineLayoutTheme"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="50"
+                    app:helperText="비밀번호를 다시 한번 입력해주세요."
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pass_input_layout">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/t_pass_check"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
+                        android:lines="1"
+                        android:text="@={vm.passCheck}"
+                        android:nextFocusDown="@id/t_pass"
+                        android:singleLine="true"
+                        tools:hint="비밀번호 확인" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!-- 이름 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/name_input_layout"
+                    style="@style/register_outline_input_layout"
+                    android:theme="@style/inputOutlineLayoutTheme"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pass_check_input_layout">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/t_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:text="@={vm.name}"
+                        android:nextFocusDown="@id/t_pass"
+                        android:singleLine="true"
+                        tools:hint="이름" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!-- 소속 -->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/company_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="소속"
+                    android:layout_marginVertical="10dp"
+                    app:layout_constraintEnd_toEndOf="@id/name_input_layout"
+                    app:layout_constraintStart_toStartOf="@id/name_input_layout"
+                    app:layout_constraintTop_toBottomOf="@id/name_input_layout" />
+
+                <Spinner
+                    android:id="@+id/register_commpany_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintEnd_toEndOf="@id/company_label"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/company_label"
+                    app:layout_constraintTop_toBottomOf="@id/company_label" />
+
+
+                <!-- 연락처 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phone_input_layout"
+                    style="@style/register_outline_input_layout"
+                    android:theme="@style/inputOutlineLayoutTheme"
+                    android:layout_marginVertical="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/register_commpany_spinner">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/t_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        android:lines="1"
+                        android:text="@={vm.phone}"
+                        android:nextFocusDown="@id/t_pass"
+                        android:singleLine="true"
+                        tools:hint="연락처" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!-- 이메일 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/email_input_layout"
+                    style="@style/register_outline_input_layout"
+                    android:theme="@style/inputOutlineLayoutTheme"
+                    android:layout_marginVertical="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phone_input_layout">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/t_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        android:lines="1"
+                        android:text="@={vm.email}"
+                        android:nextFocusDown="@id/t_pass"
+                        android:singleLine="true"
+                        tools:hint="이메일" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <CheckBox
+                    android:id="@+id/checkbox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:layout_marginVertical="10dp"
+                    android:text="기재된 개인정보 제공과 가입에 동의합니다."
+                    app:layout_constraintTop_toBottomOf="@id/email_input_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- 등록 버튼 -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/bt_login"
+                    style="@style/bt_login_style"
+                    android:text="등록하기"
+                    android:layout_marginVertical="10dp"
+                    android:onClick="@{()->vm.onRegiterClick()}"
+                    app:layout_constraintTop_toBottomOf="@id/checkbox"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

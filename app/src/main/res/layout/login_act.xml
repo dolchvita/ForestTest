@@ -89,6 +89,7 @@
                 android:textColor="@color/register_blue"
                 android:textSize="18dp"
                 android:layout_margin="10dp"
+                android:onClick="@{()->vm.onRegiterClick()}"
                 app:layout_constraintTop_toBottomOf="@+id/bt_login"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>

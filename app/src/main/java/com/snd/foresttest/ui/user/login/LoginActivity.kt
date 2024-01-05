@@ -1,12 +1,14 @@
 package com.snd.foresttest.ui.user.login
 
+import android.content.Context
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.snd.foresttest.R
 import com.snd.foresttest.base.TMActivity
 import com.snd.foresttest.databinding.ActLoginBinding
-import androidx.lifecycle.ViewModel
 
 
 class LoginActivity : TMActivity() {
@@ -18,6 +20,12 @@ class LoginActivity : TMActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bb = DataBindingUtil.setContentView(this, R.layout.act_login)
+
+        val context: Context = this
+        val bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.logo_kofpy)
+
+        val imageView : ImageView = bb.logoLogin
+        imageView.setImageBitmap(bitmap)
 
     }
 

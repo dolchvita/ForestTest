@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ForestTest</string>
+
+    <string name="register_text"><![CDATA[<u>사용자 등록하기</u>]]></string>
 </resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@color/login_green"/> <!-- 기본 색상 -->
+            <corners android:radius="10dp"/> <!-- 모서리 반지름 -->
+        </shape>
+    </item>
+</selector>
